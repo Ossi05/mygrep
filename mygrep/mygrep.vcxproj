@@ -124,11 +124,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="Flag.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyGrep.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="Flag.h" />
     <ClInclude Include="MyGrep.h" />
   </ItemGroup>
   <ItemGroup>
