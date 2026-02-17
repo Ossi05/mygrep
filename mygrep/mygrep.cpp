@@ -1,6 +1,6 @@
-﻿#include <iostream>
+﻿#include "MyGrep.h"
 
-int main()
+size_t MyGrep::find_from_string(const std::string& text, const std::string& search_term)
 {
-	std::cout << "C++ MyGrep!\n";
+	return text.find(search_term);
 }
