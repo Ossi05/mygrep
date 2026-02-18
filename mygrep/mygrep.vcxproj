@@ -127,11 +127,13 @@
     <ClCompile Include="Flag.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyGrep.cpp" />
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="Flag.h" />
     <ClInclude Include="MyGrep.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="man_grep_plain_ASCII.txt" />

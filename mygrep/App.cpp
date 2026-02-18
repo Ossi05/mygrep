@@ -45,7 +45,7 @@ void App::interactive_mode()
 void App::print_matching_lines(const std::string& search_term, const std::string& file_name, const Options& options)
 {
 	// 1. Find matching lines
-	std::vector<Line> lines{ MyGrep::get_matching_lines(search_term, file_name) };
+	std::vector<Line> lines{ MyGrep::get_matching_lines(search_term, file_name, options) };
 
 	// 2. Print matching lines
 	for (const auto& line : lines) {
@@ -66,6 +66,7 @@ void App::print_matching_lines(const std::string& search_term, const std::string
 	}
 
 }
+
 Options App::parse_options(const std::string& options_str)
 {
 	Options options{};
@@ -85,6 +86,12 @@ Options App::parse_options(const std::string& options_str)
 			break;
 		case Flag::occurrences:
 			options.show_occurances = true;
+			break;
+		case Flag::ignore_case:
+			options.ignore_case = true;
+			break;
+		case Flag::reverse_search:
+			options.reverse_search = true;
 			break;
 		default:
 			break;
