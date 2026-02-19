@@ -1,5 +1,6 @@
 ﻿#include "App.h"
 #include <iostream>
+#include <exception>
 
 int main(int argc, char* argv[])
 {
@@ -12,6 +13,11 @@ int main(int argc, char* argv[])
 	catch (const std::exception& e)
 	{
 		std::cerr << e.what();
+		return 1;
+	}
+	catch (...)
+	{
+		std::cerr << "mygrep: an unknown error occurred";
 		return 1;
 	}
 }

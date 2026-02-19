@@ -27,7 +27,12 @@ std::vector<Line> MyGrep::get_matching_lines(const std::string& search_term, con
 
 	while (std::getline(in_file, line)) {
 		line_number++;
-		if (find_from_string(search_term, line, options.ignore_case) == std::string::npos && !options.reverse_search) continue;
+
+		// Check if the line contains the search term
+		bool has_match = find_from_string(search_term, line, options.ignore_case) != std::string::npos;
+
+		// Skip, if has_match and reverse_search is the same
+		if (has_match == options.reverse_search) continue;
 
 		matching_lines.push_back({ line, line_number });
 	}

@@ -56,9 +56,10 @@ void App::print_matching_lines(const std::string& search_term, const std::string
 	}
 
 	if (options.show_occurances) {
-		// Show matching occurances
+		// Show matching or not matching occurences
 		std::cout
-			<< "\nOccurrences of lines containing "
+			<< "\nOccurrences of lines "
+			<< (options.reverse_search ? "NOT containing " : "containing ")
 			<< '"' << search_term << '"'
 			<< ": "
 			<< lines.size()
