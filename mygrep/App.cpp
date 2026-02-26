@@ -29,7 +29,7 @@ void App::interactive_mode()
 		std::cout
 			<< '"' << search_term << '"'
 			<< " NOT found in "
-			<< '"' << text << '"';
+			<< '"' << text << '"' << std::endl;
 		return;
 	}
 
@@ -39,7 +39,7 @@ void App::interactive_mode()
 		<< " found in "
 		<< '"' << text << '"'
 		<< " in position "
-		<< index;
+		<< index << std::endl;
 }
 
 void App::print_matching_lines(const std::string& search_term, const std::string& file_name, const Options& options)
@@ -55,7 +55,7 @@ void App::print_matching_lines(const std::string& search_term, const std::string
 			<< std::endl;
 	}
 
-	if (options.show_occurances) {
+	if (options.show_occurrences) {
 		// Show matching or not matching occurences
 		std::cout
 			<< "\nOccurrences of lines "
@@ -86,7 +86,7 @@ Options App::parse_options(const std::string& options_str)
 			options.show_line_number = true;
 			break;
 		case Flag::occurrences:
-			options.show_occurances = true;
+			options.show_occurrences = true;
 			break;
 		case Flag::ignore_case:
 			options.ignore_case = true;
@@ -104,7 +104,7 @@ Options App::parse_options(const std::string& options_str)
 	return options;
 }
 void App::run(int argc, char* argv[])
-{
+{	
 	switch (argc) {
 	case 1:
 		// No arguments provided
@@ -122,7 +122,7 @@ void App::run(int argc, char* argv[])
 			parse_options(argv[1]));
 		break;
 	default:
-		std::cerr << "mygrep: argument not found";
+		throw std::invalid_argument("mygrep: invalid number of arguments");
 		break;
 	}
 }

@@ -9,7 +9,7 @@ struct Line {
 
 struct Options {
 	bool show_line_number{};
-	bool show_occurances{};
+	bool show_occurrences{};
 	bool ignore_case{};
 	bool reverse_search{};
 };
